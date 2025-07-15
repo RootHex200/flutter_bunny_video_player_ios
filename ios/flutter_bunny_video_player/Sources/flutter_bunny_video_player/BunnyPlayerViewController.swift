@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import UIKit
 import BunnyStreamPlayer
+import Flutter
 class BunnyPlayerViewController: UIViewController {
     let accessKey: String?
     let videoId: String

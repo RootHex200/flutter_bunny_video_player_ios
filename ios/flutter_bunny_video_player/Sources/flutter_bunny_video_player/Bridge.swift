@@ -49,7 +49,7 @@ public class BunnyPlayerPlatformViewFactory: NSObject, FlutterPlatformViewFactor
         super.init()
     }
 
-    func create(
+    public func create(
         withFrame frame: CGRect,
         viewIdentifier viewId: Int64,
         arguments args: Any?
@@ -57,7 +57,7 @@ public class BunnyPlayerPlatformViewFactory: NSObject, FlutterPlatformViewFactor
         return BunnyPlayerPlatformView(frame: frame, viewIdentifier: viewId, arguments: args, messenger: messenger)
     }
 
-    func createArgsCodec() -> FlutterMessageCodec & NSObjectProtocol {
+    public func createArgsCodec() -> FlutterMessageCodec & NSObjectProtocol {
         return FlutterStandardMessageCodec.sharedInstance()
     }
 }

@@ -18,7 +18,10 @@ let package = Package(
     targets: [
         .target(
             name: "flutter_bunny_video_player",
-            dependencies: [],
+            dependencies: [
+                .product(name: "BunnyStreamAPI", package: "bunny-stream-ios"),
+                .product(name: "BunnyStreamPlayer", package: "bunny-stream-ios"),
+            ],
             resources: [
                 // If your plugin requires a privacy manifest, for example if it uses any required
                 // reason APIs, update the PrivacyInfo.xcprivacy file to describe your plugin's
