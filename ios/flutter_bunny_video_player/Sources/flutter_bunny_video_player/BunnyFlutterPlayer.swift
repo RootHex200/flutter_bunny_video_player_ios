@@ -13,12 +13,15 @@ struct BunnyFlutterPlayer: View {
     let videoId: String
     let libraryId: Int
     let playerIcons: PlayerIcons
+    let token: String?
+    let expires:Int?
 
     var body: some View {
         BunnyStreamPlayer(
             accessKey: accessKey,
-                         videoId: videoId,
-                         libraryId: libraryId,
-        playerIcons: playerIcons)
+                        videoId: videoId,
+                        libraryId: libraryId,
+                         token: token,
+                        expires: expires)
     }
 }

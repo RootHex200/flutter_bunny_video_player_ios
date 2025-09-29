@@ -25,12 +25,17 @@ class BunnyPlayerPlatformView: NSObject, FlutterPlatformView {
         let accessKey = params?["accessKey"]
         let libraryId = params?["libraryId"] as? Int ?? 0
         let videoId = params?["videoId"] as? String ?? ""
+        let token = params?["token"] as? String ?? nil
+        let expires = params?["expires"] as? Int ?? nil
         
         let controller = BunnyPlayerViewController(
             accessKey: accessKey as? String ?? nil,
             videoId: videoId,
             libraryId: libraryId,
-            playIconAsset: playIconAsset
+            playIconAsset: playIconAsset,
+            token: token,
+            expires: expires
+            
         )
         _view = controller.view
         super.init()

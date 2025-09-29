@@ -15,12 +15,17 @@ class BunnyPlayerViewController: UIViewController {
     let videoId: String
     let libraryId: Int
     let playIconAsset: String
+    let token: String?
+    let expires: Int?
 
-    init(accessKey: String?, videoId: String, libraryId: Int,playIconAsset: String) {
+    init(accessKey: String?, videoId: String, libraryId: Int,playIconAsset: String
+         ,token:String?,expires:Int?) {
         self.accessKey = accessKey
         self.videoId = videoId
         self.libraryId = libraryId
         self.playIconAsset = playIconAsset
+        self.token=token
+        self.expires=expires
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -38,7 +43,9 @@ class BunnyPlayerViewController: UIViewController {
             accessKey: accessKey,
             videoId: videoId,
             libraryId: libraryId,
-            playerIcons: icons
+            playerIcons: icons,
+            token: token,
+            expires: expires
         )
 
         let hostingController = UIHostingController(rootView: playerView)
