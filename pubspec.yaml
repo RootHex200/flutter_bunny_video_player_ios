@@ -4,7 +4,7 @@ version: 0.0.1
 homepage: https://github.com/RootHex200/flutter_bunny_video_player_ios.git
 
 environment:
-  sdk: '>=3.5.0'
+  sdk: '>=3.5.0 <4.0.0'
   flutter: '>=3.3.0'
 
 dependencies:
