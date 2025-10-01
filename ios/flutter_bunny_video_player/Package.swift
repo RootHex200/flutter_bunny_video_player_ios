@@ -4,12 +4,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "flutter_bunny_video_player",
+    name: "flutter_bunny_video_player_ios",
     platforms: [
         .iOS("15.6")
     ],
     products: [
-        .library(name: "flutter-bunny-video-player", targets: ["flutter_bunny_video_player"])
+        .library(name: "flutter-bunny-video-player", targets: ["flutter_bunny_video_player_ios"])
     ],
     dependencies: [
         .package(url: "https://github.com/RootHex200/bunny-stream-ios.git", branch: "remove-openapi")
@@ -17,7 +17,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "flutter_bunny_video_player",
+            name: "flutter_bunny_video_player_ios",
             dependencies: [
                 .product(name: "BunnyStreamAPI", package: "bunny-stream-ios"),
                 .product(name: "BunnyStreamPlayer", package: "bunny-stream-ios"),

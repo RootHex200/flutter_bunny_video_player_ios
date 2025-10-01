@@ -39,7 +39,7 @@ class _BunnyPlayerViewState extends State<BunnyPlayerView> {
 
   @override
   Widget build(BuildContext context) {
-    const viewType = 'bunny_player_view';
+    const viewType = 'bunny_player_view_ios';
 
     if (Platform.isIOS) {
       return UiKitView(

@@ -70,7 +70,7 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_bunny_video_player:
+  flutter_bunny_video_player_ios:
     dependency: "direct main"
     description:
       path: ".."

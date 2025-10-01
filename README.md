@@ -1,4 +1,4 @@
-# flutter_bunny_video_player
+# flutter_bunny_video_player_ios
 
 A new Flutter plugin project.
 

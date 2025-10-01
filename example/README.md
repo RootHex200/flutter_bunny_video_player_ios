@@ -1,6 +1,6 @@
-# flutter_bunny_video_player_example
+# flutter_bunny_video_player_ios_example
 
-Demonstrates how to use the flutter_bunny_video_player plugin.
+Demonstrates how to use the flutter_bunny_video_player_ios plugin.
 
 ## Getting Started
 

@@ -3,7 +3,7 @@ import UIKit
 import BunnyStreamPlayer
 public class FlutterBunnyVideoPlayerPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "flutter_bunny_video_player", binaryMessenger: registrar.messenger())
+    let channel = FlutterMethodChannel(name: "flutter_bunny_video_player_ios", binaryMessenger: registrar.messenger())
     let instance = FlutterBunnyVideoPlayerPlugin()
       
     let factory = BunnyPlayerPlatformViewFactory(messenger: registrar.messenger())
