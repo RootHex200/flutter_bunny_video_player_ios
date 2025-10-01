@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bunny_video_player_ios/flutter_bunny_video_player.dart';
+import 'package:flutter_bunny_video_player_ios/flutter_bunny_video_player_ios.dart';
 
 void main() {
   runApp(const MyApp());
