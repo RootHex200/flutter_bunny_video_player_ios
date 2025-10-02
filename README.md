@@ -2,6 +2,12 @@
 
 A Flutter plugin that provides a native iOS video player using Bunny Stream's video streaming service.
 
+**Important:** Not all functionality is supported on all platforms.
+To check details, please read the README files
+of the endorsed platform packages:
+
+* [`flutter_bunny_video_player` Android Supported README](https://pub.dev/packages/flutter_bunny_video_player)
+* [`flutter_bunny_video_player_ios` IOS Supported README](https://pub.dev/packages/flutter_bunny_video_player_ios)
 ## Features
 
 - 🎥 **Native iOS Video Player**: Built on top of Bunny Stream's iOS SDK
@@ -23,7 +29,7 @@ A Flutter plugin that provides a native iOS video player using Bunny Stream's vi
 
 ```yaml
 dependencies:
-  flutter_bunny_video_player_ios: ^0.0.1
+  flutter_bunny_video_player_ios: ^1.0.4
 ```
 
 ### 2. Enable Swift Package Manager in Flutter
