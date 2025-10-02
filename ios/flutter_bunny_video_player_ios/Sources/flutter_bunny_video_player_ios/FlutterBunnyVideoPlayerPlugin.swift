@@ -7,7 +7,7 @@ public class FlutterBunnyVideoPlayerPlugin: NSObject, FlutterPlugin {
     let instance = FlutterBunnyVideoPlayerPlugin()
       
     let factory = BunnyPlayerPlatformViewFactory(messenger: registrar.messenger())
-    registrar.register(factory, withId: "bunny_player_view")
+    registrar.register(factory, withId: "bunny_player_view_ios")
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
