@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(title: const Text('Plugin example app')),
         body: const Center(
           child: SizedBox(
-            child: BunnyPlayerView(
+            child: BunnyIosPlayerView(
               accessKey: null,
               videoId: "1e5b2551-adde-4ee9-b5b3-876c58ebfd33",
               libraryId: 316762,

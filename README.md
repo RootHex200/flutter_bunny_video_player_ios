@@ -76,7 +76,7 @@ class VideoPlayerScreen extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           height: 200,
-          child: BunnyPlayerView(
+          child: BunnyIosPlayerView(
             accessKey: 'your-access-key', // Optional
             videoId: 'your-video-id',     // Required
             libraryId: 123456,            // Required

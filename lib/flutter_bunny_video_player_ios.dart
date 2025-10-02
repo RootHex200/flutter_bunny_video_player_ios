@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
-class BunnyPlayerView extends StatefulWidget {
+class BunnyIosPlayerView extends StatefulWidget {
   final String? accessKey;
   final String videoId;
   final int libraryId;
@@ -11,7 +11,7 @@ class BunnyPlayerView extends StatefulWidget {
   final String? token;
   final int? expires;
 
-  const BunnyPlayerView({
+  const BunnyIosPlayerView({
     super.key,
     required this.accessKey,
     required this.videoId,
@@ -22,10 +22,10 @@ class BunnyPlayerView extends StatefulWidget {
   });
 
   @override
-  State<BunnyPlayerView> createState() => _BunnyPlayerViewState();
+  State<BunnyIosPlayerView> createState() => _BunnyPlayerViewState();
 }
 
-class _BunnyPlayerViewState extends State<BunnyPlayerView> {
+class _BunnyPlayerViewState extends State<BunnyIosPlayerView> {
   @override
   void initState() {
 // SystemChrome.setPreferredOrientations([
