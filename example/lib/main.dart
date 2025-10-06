@@ -27,11 +27,12 @@ class _MyAppState extends State<MyApp> {
           child: SizedBox(
             child: BunnyIosPlayerView(
               accessKey: null,
-              videoId: "1e5b2551-adde-4ee9-b5b3-876c58ebfd33",
-              libraryId: 316762,
-              expires: 20250922120000,
+              videoId: "b773d67d-8006-45d5-b22a-731262d61af9",
+              libraryId: 267648,
+              expires: 1759775322,
               token:
-                  "db6ba6794ebdccedfc9e7719ce6eb4e8700b2ee4b0159fb3b8b311fd99ade91f",
+                  "e93cfad682e66356011a54526126eebff7ccd977fcbba7f2f892df3dd7a9f91d",
+                  referer: "https://test.klasio.dev",
               // Flutter asset path
             ),
           ),

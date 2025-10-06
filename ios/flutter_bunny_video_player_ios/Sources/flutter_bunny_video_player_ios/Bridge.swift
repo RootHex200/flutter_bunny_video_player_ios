@@ -27,6 +27,7 @@ class BunnyPlayerPlatformView: NSObject, FlutterPlatformView {
         let videoId = params?["videoId"] as? String ?? ""
         let token = params?["token"] as? String ?? nil
         let expires = params?["expires"] as? Int ?? nil
+        let referer = params?["referer"] as? String ?? nil
         
         let controller = BunnyPlayerViewController(
             accessKey: accessKey as? String ?? nil,
@@ -34,7 +35,8 @@ class BunnyPlayerPlatformView: NSObject, FlutterPlatformView {
             libraryId: libraryId,
             playIconAsset: playIconAsset,
             token: token,
-            expires: expires
+            expires: expires,
+            referer: referer
             
         )
         _view = controller.view

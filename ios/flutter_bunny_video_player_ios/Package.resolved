@@ -3,10 +3,19 @@
     {
       "identity" : "bunny-stream-ios",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/BunnyWay/bunny-stream-ios.git",
+      "location" : "https://github.com/RootHex200/bunny-stream-ios.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "a02ffaabdaba3f9eef4c68344a009b87728dbaa4"
+        "branch" : "remove-openapi",
+        "revision" : "9a4136f02059769afdce782d703b20d062280a15"
+      }
+    },
+    {
+      "identity" : "bytesparser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dagronf/BytesParser",
+      "state" : {
+        "revision" : "a091513c4059d336c8cbf0b9485fcba63bcba83a",
+        "version" : "3.2.1"
       }
     },
     {
@@ -33,7 +42,7 @@
       "location" : "https://github.com/onevcat/Kingfisher.git",
       "state" : {
         "branch" : "master",
-        "revision" : "90c9ae83e07354365de3703cc53a27e595f3b305"
+        "revision" : "dd3c422ec3088404d6f7e8c905a8318b3de12d6f"
       }
     },
     {
@@ -43,87 +52,6 @@
       "state" : {
         "revision" : "c6328f9751627287bcddcf0106eb54e5ca6b9ef8",
         "version" : "2.4.2"
-      }
-    },
-    {
-      "identity" : "openapikit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mattpolzin/OpenAPIKit",
-      "state" : {
-        "revision" : "a75aa4166d916f1cb4a192e928a18f7b6d3516bc",
-        "version" : "3.5.2"
-      }
-    },
-    {
-      "identity" : "swift-algorithms",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-algorithms",
-      "state" : {
-        "revision" : "87e50f483c54e6efd60e885f7f5aa946cee68023",
-        "version" : "1.2.1"
-      }
-    },
-    {
-      "identity" : "swift-argument-parser",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-argument-parser",
-      "state" : {
-        "revision" : "309a47b2b1d9b5e991f36961c983ecec72275be3",
-        "version" : "1.6.1"
-      }
-    },
-    {
-      "identity" : "swift-collections",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-collections",
-      "state" : {
-        "revision" : "c1805596154bb3a265fd91b8ac0c4433b4348fb0",
-        "version" : "1.2.0"
-      }
-    },
-    {
-      "identity" : "swift-http-types",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-http-types",
-      "state" : {
-        "revision" : "a0a57e949a8903563aba4615869310c0ebf14c03",
-        "version" : "1.4.0"
-      }
-    },
-    {
-      "identity" : "swift-numerics",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-numerics.git",
-      "state" : {
-        "revision" : "e0ec0f5f3af6f3e4d5e7a19d2af26b481acb6ba8",
-        "version" : "1.0.3"
-      }
-    },
-    {
-      "identity" : "swift-openapi-generator",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-openapi-generator",
-      "state" : {
-        "revision" : "84b693f9d0559dc488e691edb4837bafbce2aaea",
-        "version" : "1.7.0"
-      }
-    },
-    {
-      "identity" : "swift-openapi-runtime",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-openapi-runtime",
-      "state" : {
-        "revision" : "23146bc8710ac5e57abb693113f02dc274cf39b6",
-        "version" : "1.8.0"
-      }
-    },
-    {
-      "identity" : "swift-openapi-urlsession",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-openapi-urlsession",
-      "state" : {
-        "revision" : "9bf4c712ad7989d6a91dbe68748b8829a50837e4",
-        "version" : "1.0.2"
       }
     },
     {
@@ -141,7 +69,7 @@
       "location" : "https://github.com/dagronf/SwiftSubtitles.git",
       "state" : {
         "branch" : "main",
-        "revision" : "9f1503bda1d095880da0f14a0e07215631929f27"
+        "revision" : "485c6f1fc71235041198a8bb893fa22f807451a6"
       }
     },
     {
@@ -159,16 +87,7 @@
       "location" : "https://github.com/tus/TUSKit.git",
       "state" : {
         "branch" : "main",
-        "revision" : "c9093125cbcd41c381574d1c343d0657ada82398"
-      }
-    },
-    {
-      "identity" : "yams",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/jpsim/Yams",
-      "state" : {
-        "revision" : "3d6871d5b4a5cd519adf233fbb576e0a2af71c17",
-        "version" : "5.4.0"
+        "revision" : "64a1d8532cc97a5c50c6ad0fb35de1823103ba5a"
       }
     }
   ],

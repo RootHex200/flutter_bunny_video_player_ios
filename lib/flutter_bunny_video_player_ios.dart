@@ -10,6 +10,7 @@ class BunnyIosPlayerView extends StatefulWidget {
   final String? playIconAsset;
   final String? token;
   final int? expires;
+  final String? referer;
 
   const BunnyIosPlayerView({
     super.key,
@@ -18,7 +19,8 @@ class BunnyIosPlayerView extends StatefulWidget {
     required this.libraryId,
     this.playIconAsset,
     this.token,
-    this.expires
+    this.expires,
+    this.referer
   });
 
   @override
@@ -52,6 +54,7 @@ class _BunnyPlayerViewState extends State<BunnyIosPlayerView> {
           'playIconAsset': widget.playIconAsset,
           'token':widget.token,
           'expires':widget.expires,
+          'referer':widget.referer,
         },
         creationParamsCodec: const StandardMessageCodec(),
       );

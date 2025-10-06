@@ -15,6 +15,7 @@ struct BunnyFlutterPlayer: View {
     let playerIcons: PlayerIcons
     let token: String?
     let expires:Int?
+    let referer:String?
 
     var body: some View {
         BunnyStreamPlayer(
@@ -22,6 +23,8 @@ struct BunnyFlutterPlayer: View {
                         videoId: videoId,
                         libraryId: libraryId,
                          token: token,
-                        expires: expires)
+                        expires: expires,
+            referer: referer
+        )
     }
 }
