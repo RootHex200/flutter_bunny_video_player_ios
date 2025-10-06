@@ -1,6 +1,6 @@
 name: flutter_bunny_video_player_ios
 description: "A Flutter plugin that provides native iOS video player using Bunny Stream's video streaming service"
-version: 1.0.4
+version: 1.0.5
 homepage: https://github.com/RootHex200/flutter_bunny_video_player_ios.git
 
 environment:
