@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import UIKit
+import AVFoundation
 import BunnyStreamPlayer
 import Flutter
 class BunnyPlayerViewController: UIViewController {
@@ -18,6 +19,7 @@ class BunnyPlayerViewController: UIViewController {
     let token: String?
     let expires: Int?
     let referer: String?
+    private weak var avPlayer: AVPlayer?
 
     init(accessKey: String?, videoId: String, libraryId: Int,playIconAsset: String
          ,token:String?,expires:Int?,referer:String?) {
@@ -48,7 +50,11 @@ class BunnyPlayerViewController: UIViewController {
             playerIcons: icons,
             token: token,
             expires: expires,
-            referer: referer
+            referer: referer,
+            onPlayerReady: { [weak self] player in
+                NSLog("🎬 [BunnyPlayer] onPlayerReady — captured AVPlayer reference")
+                self?.avPlayer = player
+            }
         )
 
         let hostingController = UIHostingController(rootView: playerView)
@@ -65,6 +71,29 @@ class BunnyPlayerViewController: UIViewController {
             hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
        // hostingController.didMove(toParent: self)
+    }
+
+    func cleanup() {
+        NSLog("🧹 [BunnyPlayer] cleanup() called — videoId: %@, children: %d", videoId, children.count)
+        if let player = avPlayer {
+            NSLog("🧹 [BunnyPlayer] tearing down AVPlayer directly (pause + replaceCurrentItem nil)")
+            player.pause()
+            player.replaceCurrentItem(with: nil)
+        } else {
+            NSLog("🧹 [BunnyPlayer] no captured AVPlayer — relying on SwiftUI onDisappear teardown")
+        }
+        avPlayer = nil
+        children.forEach { child in
+            NSLog("🧹 [BunnyPlayer] removing child: %@", String(describing: type(of: child)))
+            child.willMove(toParent: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParent()
+        }
+        NSLog("🧹 [BunnyPlayer] cleanup() done")
+    }
+
+    deinit {
+        NSLog("⚫️ [BunnyPlayer] BunnyPlayerViewController deinit — videoId: %@", videoId)
     }
 
     private func loadFlutterAsset(named asset: String) -> Image {

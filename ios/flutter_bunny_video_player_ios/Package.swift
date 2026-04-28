@@ -13,7 +13,6 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/RootHex200/bunny-stream-ios.git", branch: "remove-openapi")
-        
     ],
     targets: [
         .target(

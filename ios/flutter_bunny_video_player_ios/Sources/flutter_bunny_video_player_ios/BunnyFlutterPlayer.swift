@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import AVFoundation
 import BunnyStreamPlayer
 struct BunnyFlutterPlayer: View {
     let accessKey: String?
@@ -14,17 +15,19 @@ struct BunnyFlutterPlayer: View {
     let libraryId: Int
     let playerIcons: PlayerIcons
     let token: String?
-    let expires:Int?
-    let referer:String?
+    let expires: Int?
+    let referer: String?
+    let onPlayerReady: ((AVPlayer) -> Void)?
 
     var body: some View {
         BunnyStreamPlayer(
             accessKey: accessKey,
-                        videoId: videoId,
-                        libraryId: libraryId,
-                         token: token,
-                        expires: expires,
-            referer: referer
+            videoId: videoId,
+            libraryId: libraryId,
+            token: token,
+            expires: expires,
+            referer: referer,
+            onPlayerReady: onPlayerReady
         )
     }
 }
