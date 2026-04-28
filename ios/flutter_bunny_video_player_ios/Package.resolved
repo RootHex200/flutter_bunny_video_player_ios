@@ -5,7 +5,6 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/RootHex200/bunny-stream-ios.git",
       "state" : {
-        "branch" : "remove-openapi",
         "revision" : "c9c04c6dfa7b399ad9d94900f43f4f10ec67e70f"
       }
     },
@@ -42,7 +41,7 @@
       "location" : "https://github.com/onevcat/Kingfisher.git",
       "state" : {
         "branch" : "master",
-        "revision" : "dd3c422ec3088404d6f7e8c905a8318b3de12d6f"
+        "revision" : "0b84e5b3203a6f8a54ca5328e99eef8af3cc2b40"
       }
     },
     {
@@ -87,7 +86,7 @@
       "location" : "https://github.com/tus/TUSKit.git",
       "state" : {
         "branch" : "main",
-        "revision" : "64a1d8532cc97a5c50c6ad0fb35de1823103ba5a"
+        "revision" : "167938293923b5c31ba1255da5aada8e67533984"
       }
     }
   ],
