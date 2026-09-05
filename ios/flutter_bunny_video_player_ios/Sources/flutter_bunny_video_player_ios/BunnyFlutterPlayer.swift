@@ -17,6 +17,7 @@ struct BunnyFlutterPlayer: View {
     let token: String?
     let expires: Int?
     let referer: String?
+    let cacheKey: String?
     let onPlayerReady: ((AVPlayer) -> Void)?
 
     var body: some View {
@@ -27,6 +28,7 @@ struct BunnyFlutterPlayer: View {
             token: token,
             expires: expires,
             referer: referer,
+            cacheKey: cacheKey,
             onPlayerReady: onPlayerReady
         )
     }

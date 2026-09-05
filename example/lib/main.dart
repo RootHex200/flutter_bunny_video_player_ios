@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bunny_video_player_ios/flutter_bunny_video_player_ios.dart';
 
 void main() => runApp(const MyApp());
@@ -97,8 +100,150 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: const Text('Open second screen'),
               ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const DownloadsPage()),
+                  );
+                },
+                child: const Text('Downloads'),
+              ),
             ],
           ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Demonstrates offline downloads: start/cancel/delete plus live progress,
+/// then playing the downloaded copy with `offline: true`.
+class DownloadsPage extends StatefulWidget {
+  const DownloadsPage({super.key});
+
+  @override
+  State<DownloadsPage> createState() => _DownloadsPageState();
+}
+
+class _DownloadsPageState extends State<DownloadsPage> {
+  // Same key the download is started with; playback looks it up by this.
+  static const _cacheKey = 'demo-$_videoId';
+
+  StreamSubscription<BunnyDownloadEvent>? _subscription;
+  BunnyDownloadEvent? _event;
+  List<BunnyOfflineVideo> _completed = const [];
+  bool _offlineMode = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _subscription = BunnyVideoDownloads.events().listen((e) {
+      if (e.cacheKey != _cacheKey) return;
+      setState(() => _event = e);
+    });
+    _refreshList();
+  }
+
+  @override
+  void dispose() {
+    _subscription?.cancel();
+    super.dispose();
+  }
+
+  Future<void> _refreshList() async {
+    final videos = await BunnyVideoDownloads.list();
+    if (mounted) setState(() => _completed = videos);
+  }
+
+  Future<void> _startDownload() async {
+    try {
+      await BunnyVideoDownloads.start(
+        cacheKey: _cacheKey,
+        videoId: _videoId,
+        libraryId: _libraryId,
+        wifiOnly: false,
+      );
+    } on PlatformException catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('start failed: ${e.code} — ${e.message}')),
+        );
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final event = _event;
+    final isDownloaded =
+        _completed.any((v) => v.cacheKey == _cacheKey) ||
+        event?.status == BunnyDownloadStatus.downloaded;
+    final downloading = event?.status == BunnyDownloadStatus.downloading;
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('Offline downloads')),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Text(
+            'cacheKey: $_cacheKey',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          const SizedBox(height: 8),
+          Text('Status: ${event?.status.name ?? 'idle'}'),
+          if (downloading)
+            Text(
+              '${((event?.progress ?? 0) * 100).toStringAsFixed(0)}% • '
+              '${((event?.sizeBytes ?? 0) / 1024 / 1024).toStringAsFixed(1)} MB',
+            ),
+          if (event?.status == BunnyDownloadStatus.failed)
+            Text('Error: ${event?.errorCode}'),
+          const SizedBox(height: 16),
+          Wrap(
+            spacing: 8,
+            children: [
+              ElevatedButton(
+                onPressed: downloading ? null : _startDownload,
+                child: const Text('Download'),
+              ),
+              ElevatedButton(
+                onPressed:
+                    downloading || event?.status == BunnyDownloadStatus.queued
+                    ? () => BunnyVideoDownloads.cancel(_cacheKey)
+                    : null,
+                child: const Text('Cancel'),
+              ),
+              ElevatedButton(
+                onPressed: isDownloaded
+                    ? () async {
+                        await BunnyVideoDownloads.delete(_cacheKey);
+                        setState(() => _event = null);
+                        _refreshList();
+                      }
+                    : null,
+                child: const Text('Delete'),
+              ),
+            ],
+          ),
+          const SizedBox(height: 24),
+          if (isDownloaded) ...[
+            SwitchListTile(
+              title: const Text('Play offline copy'),
+              value: _offlineMode,
+              onChanged: (v) => setState(() => _offlineMode = v),
+            ),
+            SizedBox(
+              height: 220,
+              child: BunnyIosPlayerView(
+                accessKey: null,
+                videoId: _videoId,
+                libraryId: _libraryId,
+                cacheKey: _offlineMode ? _cacheKey : null,
+                offline: _offlineMode,
+              ),
+            ),
+          ],
         ],
       ),
     );
