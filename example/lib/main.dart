@@ -141,6 +141,7 @@ class _DownloadsPageState extends State<DownloadsPage> {
     _subscription = BunnyVideoDownloads.events().listen((e) {
       if (e.cacheKey != _cacheKey) return;
       setState(() => _event = e);
+      if (e.status == BunnyDownloadStatus.downloaded) _refreshList();
     });
     _refreshList();
   }
@@ -191,12 +192,20 @@ class _DownloadsPageState extends State<DownloadsPage> {
             style: Theme.of(context).textTheme.bodySmall,
           ),
           const SizedBox(height: 8),
-          Text('Status: ${event?.status.name ?? 'idle'}'),
-          if (downloading)
+          Text(
+            'Status: ${isDownloaded ? 'downloaded' : event?.status.name ?? 'idle'}',
+          ),
+          if (downloading) ...[
+            const SizedBox(height: 8),
+            LinearProgressIndicator(
+              value: (event?.progress ?? 0) >= 0 ? event?.progress : null,
+            ),
+            const SizedBox(height: 4),
             Text(
               '${((event?.progress ?? 0) * 100).toStringAsFixed(0)}% • '
               '${((event?.sizeBytes ?? 0) / 1024 / 1024).toStringAsFixed(1)} MB',
             ),
+          ],
           if (event?.status == BunnyDownloadStatus.failed)
             Text('Error: ${event?.errorCode}'),
           const SizedBox(height: 16),
@@ -230,12 +239,19 @@ class _DownloadsPageState extends State<DownloadsPage> {
           if (isDownloaded) ...[
             SwitchListTile(
               title: const Text('Play offline copy'),
+              subtitle: const Text(
+                'Turn off Wi-Fi (Mac Wi-Fi for the simulator, Airplane Mode '
+                'on a device) — the video should still play.',
+              ),
               value: _offlineMode,
               onChanged: (v) => setState(() => _offlineMode = v),
             ),
             SizedBox(
               height: 220,
               child: BunnyIosPlayerView(
+                // Platform views read creationParams only once, at creation;
+                // the key forces a new native view when the toggle flips.
+                key: ValueKey(_offlineMode),
                 accessKey: null,
                 videoId: _videoId,
                 libraryId: _libraryId,
