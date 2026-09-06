@@ -1,13 +1,11 @@
 {
-  "originHash" : "ec047efb4f7e961cfeda74083fe05f965dc37737d9f40ca431675bcf7c8779a3",
   "pins" : [
     {
       "identity" : "bunny-stream-ios",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/RootHex200/bunny-stream-ios.git",
       "state" : {
-        "branch" : "remove-openapi",
-        "revision" : "c9c04c6dfa7b399ad9d94900f43f4f10ec67e70f"
+        "revision" : "f649f734cfe237695bb1fdbe5092f0897807e310"
       }
     },
     {
@@ -83,5 +81,5 @@
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }

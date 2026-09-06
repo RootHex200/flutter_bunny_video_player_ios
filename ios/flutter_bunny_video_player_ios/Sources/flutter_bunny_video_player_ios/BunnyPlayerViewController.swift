@@ -19,10 +19,11 @@ class BunnyPlayerViewController: UIViewController {
     let token: String?
     let expires: Int?
     let referer: String?
+    let cacheKey: String?
     private weak var avPlayer: AVPlayer?
 
     init(accessKey: String?, videoId: String, libraryId: Int,playIconAsset: String
-         ,token:String?,expires:Int?,referer:String?) {
+         ,token:String?,expires:Int?,referer:String?,cacheKey:String?) {
         self.accessKey = accessKey
         self.videoId = videoId
         self.libraryId = libraryId
@@ -30,6 +31,7 @@ class BunnyPlayerViewController: UIViewController {
         self.token=token
         self.referer = referer
         self.expires=expires
+        self.cacheKey = cacheKey
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -51,6 +53,7 @@ class BunnyPlayerViewController: UIViewController {
             token: token,
             expires: expires,
             referer: referer,
+            cacheKey: cacheKey,
             onPlayerReady: { [weak self] player in
                 NSLog("🎬 [BunnyPlayer] onPlayerReady — captured AVPlayer reference")
                 self?.avPlayer = player
